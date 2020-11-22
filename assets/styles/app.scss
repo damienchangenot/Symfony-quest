@@ -1,3 +1,8 @@
-body {
-    background-color: red;
-}
+$theme-colors: (
+        "primary": #0074d9,
+        "danger": #ff4136
+);
+
+$body-bg: red;
+
+@import "~bootstrap/scss/bootstrap";
