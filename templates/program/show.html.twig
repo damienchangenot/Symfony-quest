@@ -9,6 +9,12 @@
             <h1 class="mt-0">{{ program.title }}</h1>
             <p>{{ program.summary }}</p>
             <p>Catégorie : {{ program.category.name }}</p>
+
+            {% for season in program.seasons %}
+                <li><a href="/programs/{{ program.id}}/seasons/{{ season.number }}">{{ season.number }} : {{ season.description }}</a></li>
+            {% else %}
+                RAS mon chef !
+            {% endfor %}
         </div>
     </div>
 
