@@ -9,13 +9,8 @@
             <p>Catégorie : {{ program.category.name }}</p>
             <div>
                 <h2> {{ season.description }}</h2>
-                <p>Année : {{ season.year }}</p>
-                <ul>Liste des épisodes:
-                    {% for episode in season.episodes %}
-                        <li><a href="/programs/{{ program.id}}/seasons/{{ season.number }}/episodes/{{ episode.number }}">Episode {{ episode.number }} - {{ episode.title }}</a></li>
-                    {% else %}
-                        Aucun épisode trouvé.
-                    {% endfor %}
+                        <h3>Episode {{ episode.number }} - {{ episode.title }}</h3>
+                        <p>{{ episode.synopsis}}</p>
                 </ul>
             </div>
         </div>
