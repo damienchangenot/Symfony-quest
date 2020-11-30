@@ -12,7 +12,7 @@
                 <p>Année : {{ season.year }}</p>
                 <ul>Liste des épisodes:
                     {% for episode in season.episodes %}
-                        <li><a href="/programs/{{ program.id}}/seasons/{{ season.number }}/episodes/{{ episode.number }}">Episode {{ episode.number }} - {{ episode.title }}</a></li>
+                        <li><a href="/programs/{{ program.id}}/seasons/{{ season.id }}/episodes/{{ episode.id }}">Episode {{ episode.number }} - {{ episode.title }}</a></li>
                     {% else %}
                         Aucun épisode trouvé.
                     {% endfor %}

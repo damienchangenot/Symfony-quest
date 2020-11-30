@@ -11,7 +11,7 @@
             <p>Catégorie : {{ program.category.name }}</p>
 
             {% for season in program.seasons %}
-                <li><a href="/programs/{{ program.id}}/seasons/{{ season.number }}">{{ season.number }} : {{ season.description }}</a></li>
+                <li><a href="/programs/{{ program.id}}/seasons/{{ season.id }}">{{ season.number }} : {{ season.description }}</a></li>
             {% else %}
                 RAS mon chef !
             {% endfor %}
