@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container d-flex flex-column align-items-center my-4">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type='submit' value='Add category'>
+    {{ form_end(form) }}
+    </div>
+{% endblock %}

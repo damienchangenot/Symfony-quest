@@ -3,17 +3,17 @@
 {% block title %}All categories{% endblock %}
 
 {% block body %}
-    <h1>Toutes les séries de la table categories : </h1>
+    <h1 class="text-center">Toutes les séries de la table categories : </h1>
+    <div class="d-flex flex-column align-items-center">
     {% for category in categories %}
-        <div>
+        <div class=" my-4">
             <h2>{{ loop.index }} / {{ category.name }}</h2>
-            <a href="{{ path("category_show", { categoryName: category.name }) }}">Voir les séries</a>
+            <a href="{{ path("category_show", { categoryName: category.name }) }}" class="btn-lg bg-secondary my-5 text-center">Voir les séries</a>
         </div>
     {% else %}
         Aucune categories trouvée.
     {% endfor %}
-
-    <a href="{{ path('app_index') }}">
-        Retour à l'accueil
-    </a>
+    <a href="{{ path('category_new') }}" class="btn-lg bg-secondary my-4 text-center">Ajouter une catégorie</a>
+    </div>
+    <a href="{{ path('app_index') }}" class="btn-lg bg-secondary text-center">Retour à l'accueil</a>
 {% endblock %}

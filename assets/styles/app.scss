@@ -1,8 +1,8 @@
 $theme-colors: (
-        "primary": #0074d9,
+        "primary": #54c29d,
         "danger": #ff4136
 );
 
 $body-bg: #e1e6bc;
-
+@import "new";
 @import "~bootstrap/scss/bootstrap";
