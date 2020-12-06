@@ -3,9 +3,9 @@
 
 {% block body %}
     <h1 class="text-center my-5">Actor Index</h1>
-    <div class="d-flex justify-content-around my-5">
+    <div class="d-flex flex-wrap justify-content-around ">
     {% for actor in actors %}
-        <div class="card" style="width: 18rem;">
+        <div class="card my-3" style="width: 18rem;">
             <img class="card-img-top" src="{{ actor.poster }}" alt="picture of {{ actor.name }}">
             <div class="card-body text-center">
                 <h5 class="card-title">{{ actor.name }}</h5>
