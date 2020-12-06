@@ -45,7 +45,7 @@ class  ProgramController extends AbstractController
         $form = $this->createForm(ProgramType::class, $program);
         // Render the form
         $form->handleRequest($request);
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()){
             $entityManager = $this->getDoctrine()->getManager();
             // Persist Category Object
             $entityManager->persist($program);
