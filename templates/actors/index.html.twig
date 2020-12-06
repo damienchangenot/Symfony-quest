@@ -1,0 +1,17 @@
+{% extends'base.html.twig' %}
+{% block title %}Actor Index {% endblock %}
+
+{% block body %}
+    <h1 class="text-center my-5">Actor Index</h1>
+    <div class="d-flex justify-content-around my-5">
+    {% for actor in actors %}
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ actor.poster }}" alt="picture of {{ actor.name }}">
+            <div class="card-body text-center">
+                <h5 class="card-title">{{ actor.name }}</h5>
+                <a href="{{ path("actors_show", { id: actor.id }) }}" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
