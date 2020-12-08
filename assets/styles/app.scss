@@ -1,8 +1,17 @@
 $theme-colors: (
-        "primary": #54c29d,
+        "primary": #696969,
         "danger": #ff4136
 );
 
-$body-bg: #e1e6bc;
+$secondary: #ff8a65;
+
+$font-family-base:'Roboto', sans-serif;
+$body-bg: #dcdcdc;
+@import "home";
 @import "new";
 @import "~bootstrap/scss/bootstrap";
+
+.acceuil > h1{
+  font-weight: 700;
+  font-size: 80px;
+}

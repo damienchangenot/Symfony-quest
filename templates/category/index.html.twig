@@ -4,16 +4,18 @@
 
 {% block body %}
     <h1 class="text-center">Toutes les séries de la table categories : </h1>
-    <div class="d-flex flex-column align-items-center">
-    {% for category in categories %}
-        <div class="py-3 my-4 bg-light">
-            <h2>{{ loop.index }} / {{ category.name }}</h2>
-            <a href="{{ path("category_show", { categoryName: category.name }) }}" class="btn-lg bg-secondary my-5 text-center">Voir les séries</a>
-        </div>
-    {% else %}
-        Aucune categories trouvée.
-    {% endfor %}
-    <a href="{{ path('category_new') }}" class="btn-lg bg-secondary my-4 text-center">Ajouter une catégorie</a>
+    <div class="d-flex flex-wrap justify-content-around align-items-center">
+
+        {% for category in categories %}
+            <div class="py-3 my-4 bg-light">
+                <h2>{{ loop.index }} / {{ category.name }}</h2>
+                <a href="{{ path("category_show", { categoryName: category.name }) }}" class="btn-lg bg-secondary my-5 text-center text-white"">Voir les séries</a>
+            </div>
+        {% else %}
+            Aucune categories trouvée.
+        {% endfor %}
     </div>
-    <a href="{{ path('app_index') }}" class="btn-lg bg-secondary text-center">Retour à l'accueil</a>
+    <a href="{{ path('category_new') }}" class="btn-lg bg-secondary my-4 text-center text-white">Ajouter une catégorie</a>
+
+    <a href="{{ path('app_index') }}" class="btn-lg bg-secondary text-center text-white" >Retour à l'accueil</a>
 {% endblock %}
