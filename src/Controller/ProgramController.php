@@ -12,6 +12,8 @@ use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -40,9 +42,10 @@ class  ProgramController extends AbstractController
      * @Route("/new", name="new")
      * @param Request $request
      * @param Slugify $slugify
+     * @param MailerInterface $mailer
      * @return Response
      */
-    public function new(Request $request, Slugify $slugify) : Response
+    public function new(Request $request, Slugify $slugify, MailerInterface $mailer) : Response
     {
         $program = new Program();
 
@@ -53,11 +56,17 @@ class  ProgramController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $slug =$slugify->generate($program->getTitle());
             $program->setSlug($slug);
-            // Persist Category Object
             $entityManager->persist($program);
-            // Flush the persisted object
             $entityManager->flush();
-            // Finally redirect to categories list
+
+            $email = (new Email())
+                ->from($this->getParameter('mailer_from'))
+                ->to('44c1c62bd1-c63d83@inbox.mailtrap.io')
+                ->subject('Une nouvelle série vient d\'être publiée !')
+                ->html($this->renderView('program/newProgramEmail.html.twig',['program' => $program]));
+
+            $mailer->send($email);
+
             return $this->redirectToRoute('program_index');
         }
         return $this->render('program/new.html.twig', [
