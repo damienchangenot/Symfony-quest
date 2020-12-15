@@ -9,9 +9,23 @@
             <p>Catégorie : {{ program.category.name }}</p>
             <div>
                 <h2> {{ season.description }}</h2>
-                        <h3>Episode {{ episode.number }} - {{ episode.title }}</h3>
-                        <p>{{ episode.synopsis}}</p>
-                </ul>
+                    <h3>Episode {{ episode.number }} - {{ episode.title }}</h3>
+                    <p>{{ episode.synopsis}}</p>
+                {% if app.user %}
+                    <h3>Laisser un commentaires :</h3>
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <input type='submit' value='Ajouter mon commentaire'>
+                    {{ form_end(form) }}
+                {% endif %}
+                <h3> Vos commentaire :</h3>
+                {%for comment in episode.comments %}
+                    <div>
+                        <strong>{{ comment.author.email }}</strong>
+                        <p> Saison : {{ comment.episode.season.number}}, Episode :{{ comment.episode.number }}</p>
+                        <p>{{ comment.comment }}</p>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
