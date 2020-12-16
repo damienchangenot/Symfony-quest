@@ -23,9 +23,9 @@ class EpisodeFixtures extends Fixture implements  DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $faker = Faker\Factory::create('fr_FR');
-        for ($i=0; $i<100; $i++) {
+        for ($i=0; $i<40; $i++) {
             $episode = new Episode();
-            $episode->setNumber($faker->numberBetween(1, 15));
+            $episode->setNumber($faker->numberBetween(0,40));
             $episode->setTitle($faker->sentence(6));
             $episode->setSynopsis($faker->text(400));
             $episode->setSeason($this->getReference('season_' . rand(0,19)));

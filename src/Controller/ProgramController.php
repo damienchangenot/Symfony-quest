@@ -15,9 +15,11 @@ use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
  * Class ProgramController
@@ -41,12 +43,12 @@ class  ProgramController extends AbstractController
 
     /**
      * The controller for the category add form
-     *
      * @Route("/new", name="new")
      * @param Request $request
      * @param Slugify $slugify
      * @param MailerInterface $mailer
      * @return Response
+     * @throws TransportExceptionInterface
      */
     public function new(Request $request, Slugify $slugify, MailerInterface $mailer) : Response
     {
@@ -89,7 +91,11 @@ class  ProgramController extends AbstractController
                 'No program with id : '.$program.' found in program\'s table.'
             );
         }
-        return $this->render('program/show.html.twig', ['program' => $program]);
+        $seasons = $program->getSeasons();
+        return $this->render('program/show.html.twig', [
+            'program' => $program,
+            'seasons' => $seasons,
+        ]);
     }
 
     /**
@@ -144,5 +150,51 @@ class  ProgramController extends AbstractController
             'episode' => $episode,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{slug}/edit", name="edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Program $program
+     * @return Response
+     */
+    public function edit(Request $request, Program $program): Response
+    {
+        if (!($this->getUser() == $program->getOwner())) {
+
+            // If not the owner, throws a 403 Access Denied exception
+
+        throw new AccessDeniedException('Only the owner can edit the program!');
+
+        }
+        $form = $this->createForm(ProgramType::class, $program);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('program_index');
+        }
+
+        return $this->render('program/edit.html.twig', [
+            'program' => $program,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Program $program
+     * @return Response
+     */
+    public function delete(Request $request, Program $program): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$program->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($program);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute('program_index');
     }
 }

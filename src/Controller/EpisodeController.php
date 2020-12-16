@@ -68,6 +68,8 @@ class EpisodeController extends AbstractController
 
     /**
      * @Route("/{slug}", name="episode_show", methods={"GET"})
+     * @param Episode $episode
+     * @return Response
      */
     public function show(Episode $episode): Response
     {

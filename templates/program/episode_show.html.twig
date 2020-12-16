@@ -24,6 +24,11 @@
                         <strong>{{ comment.author.email }}</strong>
                         <p> Saison : {{ comment.episode.season.number}}, Episode :{{ comment.episode.number }}</p>
                         <p>{{ comment.comment }}</p>
+                        {% if app.user %}
+                        {% if is_granted("ROLE_ADMIN") or app.user.email == comment.author.email %}
+                            {{ include('program/_deleteComment_form.html.twig') }}
+                        {% endif %}
+                        {% endif %}
                     </div>
                 {% endfor %}
             </div>
