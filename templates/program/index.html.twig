@@ -4,6 +4,10 @@
 
 {% block body %}
     <h1 class="text-center ">Toutes les séries de la table program : </h1>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button>Search</button>
+    {{ form_end(form) }}
     <div class="d-flex flex-column align-items-center">
     {% for program in programs %}
         <div class="container mx-4 my-4 bg-light rounded">
