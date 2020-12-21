@@ -66,9 +66,7 @@ class  ProgramController extends AbstractController
     public function new(Request $request, Slugify $slugify, MailerInterface $mailer) : Response
     {
         $program = new Program();
-
         $form = $this->createForm(ProgramType::class, $program);
-        // Render the form
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
             $entityManager = $this->getDoctrine()->getManager();
@@ -77,13 +75,16 @@ class  ProgramController extends AbstractController
             $entityManager->persist($program);
             $entityManager->flush();
 
+            $this->addFlash('success','The new program has been created');
+
             $email = (new Email())
                 ->from($this->getParameter('mailer_from'))
                 ->to('44c1c62bd1-c63d83@inbox.mailtrap.io')
                 ->subject('Une nouvelle série vient d\'être publiée !')
                 ->html($this->renderView('program/newProgramEmail.html.twig',['program' => $program]));
-
             $mailer->send($email);
+
+
 
             return $this->redirectToRoute('program_index');
         }
@@ -185,7 +186,7 @@ class  ProgramController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('success', 'The program has been updated');
             return $this->redirectToRoute('program_index');
         }
 
@@ -208,6 +209,7 @@ class  ProgramController extends AbstractController
             $entityManager->remove($program);
             $entityManager->flush();
         }
+        $this->addFlash('danger', 'The program has been removed');
         return $this->redirectToRoute('program_index');
     }
 }

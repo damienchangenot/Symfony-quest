@@ -48,7 +48,7 @@ class EpisodeController extends AbstractController
             $episode->setSlug($slug);
             $entityManager->persist($episode);
             $entityManager->flush();
-
+            $this->addFlash('success', 'The new episode has been created');
             $email = (new Email())
                 ->from($this->getParameter('mailer_from'))
                 ->to('44c1c62bd1-c63d83@inbox.mailtrap.io')
@@ -95,6 +95,7 @@ class EpisodeController extends AbstractController
             $slug =$slugify->generate($episode->getTitle());
             $episode->setSlug($slug);
             $entityManager->flush();
+            $this->addFlash('success', 'The episode has been updated');
             return $this->redirectToRoute('episode_index');
         }
 
@@ -117,7 +118,7 @@ class EpisodeController extends AbstractController
             $entityManager->remove($episode);
             $entityManager->flush();
         }
-
+        $this->addFlash('danger', 'The episode has been removed');
         return $this->redirectToRoute('episode_index');
     }
 }
