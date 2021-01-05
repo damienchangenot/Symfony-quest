@@ -9,18 +9,29 @@
     </button>
     <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="{{ path('program_index') }}">Programs <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" href="{{ path('category_index') }}">Categories <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" href="{{ path('actors_index') }}">Actors <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="{{ path('program_index') }}">{{ 'program'|trans}}<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="{{ path('category_index') }}">{{ 'categories'|trans}}<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="{{ path('actors_index') }}">{{ 'actors'|trans}}<span class="sr-only">(current)</span></a>
         </div>
         <div>
+            <div class="dropdown">
+                <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ 'language'|trans }}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{{ path('app_index', {'_locale':'fr'})}}">Fr</a>
+                    <a class="dropdown-item" href="{{ path('app_index', {'_locale':'en'})}}">En</a>
+
+                </div>
+            </div>
+
             {% if app.user %}
                 {{ app.user.email }}
-                <a href="{{ path('profil_index') }}" class="btn bg-primary text-white ml-2 ">My Profil</a>
-                <a class="btn bg-primary text-white ml-2" href="{{ path('app_logout') }}"> Log Out</a>
+                <a href="{{ path('profil_index') }}" class="btn bg-primary text-white ml-2 ">{{ 'profil'|trans }}</a>
+                <a class="btn bg-primary text-white ml-2" href="{{ path('app_logout') }}">{{ 'account.logout'|trans }}</a>
             {% else %}
-                <a class="btn ml-2" href="{{ path('app_login') }}"> Sign In</a>
-                <a class="btn ml-2" href="{{ path('app_register') }}"> Sign Up</a>
+                <a class="btn ml-2" href="{{ path('app_login') }}">{{ 'account.login'|trans }}</a>
+                <a class="btn ml-2" href="{{ path('app_register') }}">{{ 'account.register'|trans }}</a>
             {% endif %}
         </div>
     </div>

@@ -3,11 +3,11 @@
 {% block title %}All programs{% endblock %}
 
 {% block body %}
-    <h1 class="text-center ">Toutes les séries de la table program : </h1>
+    <h1 class="text-center ">{{'all_serie'|trans}}: </h1>
     <div class="container">
         {{ form_start(form) }}
         {{ form_widget(form) }}
-        <button>Search</button>
+        <button>{{ 'search'|trans }}</button>
         {{ form_end(form) }}
     </div>
     <div class="row mx-0 ">
@@ -15,16 +15,16 @@
         <div class="col-md-6 col-lg-4 d-flex justify-content-center my-4">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h2 class="card-title">{{ program.title }} - Catégorie : {{ program.category.name }}</h2>
+                    <h2 class="card-title">{{ program.title }} - {{'categorie'|trans }}: {{ program.category.name }}</h2>
                     <p class="card-text text-truncate">{{ program.summary }}</p>
-                    <a class="card-link" href="{{ path("program_show", { slug: program.slug }) }}">Voir la fiche</a>
+                    <a class="card-link" href="{{ path("program_show", { slug: program.slug }) }}">{{ 'see_more'|trans }}</a>
                 </div>
             </div>
         </div>
     {% else %}
-        Aucune série trouvée.
+        {{'none'|trans}}
     {% endfor %}
-    <a href="{{ path('program_new') }}" class="btn-lg bg-secondary my-5 text-center">Ajouter une série</a>
+    <a href="{{ path('program_new') }}" class="btn-lg bg-secondary my-5 text-center">{{'add_serie'|trans}}</a>
     </div>
-    <a href="{{ path('app_index') }}" class="btn-lg bg-secondary text-center">Retour à l'accueil</a>
+    <a href="{{ path('app_index') }}" class="btn-lg bg-secondary text-center">{{ 'back_home'|trans }}</a>
 {% endblock %}

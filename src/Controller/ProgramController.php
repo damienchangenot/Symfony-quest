@@ -142,7 +142,7 @@ class  ProgramController extends AbstractController
      * @param Episode $episode
      * @param Request $request
      * @return Response
-     * @Route ("/{program}/seasons/{season}/episodes/{episode}",methods={"GET","POST"}, name="program_episode_show")
+     * @Route ("/{program}/seasons/{season}/episodes/{episode}",methods={"GET","POST"}, name="episode_show")
      */
     public function showEpisode(Program $program, Season $season, Episode $episode, Request $request): Response
     {

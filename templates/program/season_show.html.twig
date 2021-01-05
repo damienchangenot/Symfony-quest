@@ -6,15 +6,16 @@
         <div class="media-body">
             <h1 class="mt-0">{{ program.title }}</h1>
             <p>{{ program.summary }}</p>
-            <p>Catégorie : {{ program.category.name }}</p>
+            <p>{{ 'categorie'|trans}} : {{ program.category.name }}</p>
             <div>
                 <h2> {{ season.description }}</h2>
                 <p>Année : {{ season.year }}</p>
-                <ul>Liste des épisodes:
+                <ul>{{'episode.list'|trans}}:
                     {% for episode in season.episodes %}
-                        <li><a href="/programs/{{ program.id}}/seasons/{{ season.id }}/episodes/{{ episode.id }}">Episode {{ episode.number }} - {{ episode.title }}</a></li>
+                        <li><a href="{{ path('program_episode_show', {program:program.id, season:season.id, episode:episode.id}) }}">{{ 'episode'|trans }}
+                                {{ episode.number }} - {{ episode.title }}</a></li>
                     {% else %}
-                        Aucun épisode trouvé.
+                    {{'none'|trans}}
                     {% endfor %}
                 </ul>
             </div>
@@ -22,6 +23,6 @@
     </div>
 
     <a href="{{ path('program_index') }}">
-        Retour à la liste des programmes
+        {{'back_list'|trans}}
     </a>
 {% endblock %}

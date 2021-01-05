@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="Q7UTU9q" resname="account.logout">
+        <source>account.logout</source>
+        <target>Logout</target>
+      </trans-unit>
+      <trans-unit id="E_t5j6Q" resname="account.login">
+        <source>account.login</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="U1doKCM" resname="account.register">
+        <source>account.register</source>
+        <target>Register</target>
+      </trans-unit>
+      <trans-unit id="gc.8q9Z" resname="back_list">
+        <source>back_list</source>
+        <target>Back to list</target>
+      </trans-unit>
+      <trans-unit id="JiEhxTc" resname="edit">
+        <source>edit</source>
+        <target>Edit</target>
+      </trans-unit>
+      <trans-unit id="ExDKLIk" resname="program">
+        <source>program</source>
+        <target>Program</target>
+      </trans-unit>
+      <trans-unit id="piFuoD5" resname="categories">
+        <source>categories</source>
+        <target>Categories</target>
+      </trans-unit>
+      <trans-unit id="YFtyfT9" resname="actors">
+        <source>actors</source>
+        <target>Actors</target>
+      </trans-unit>
+      <trans-unit id="pO8wS6Q" resname="language">
+        <source>language</source>
+        <target>Languages</target>
+      </trans-unit>
+      <trans-unit id="oehMN.Z" resname="profil">
+        <source>profil</source>
+        <target>Account</target>
+      </trans-unit>
+      <trans-unit id="h3gPpd5" resname="register">
+        <source>register</source>
+        <target>Register</target>
+      </trans-unit>
+      <trans-unit id="e6qZZSv" resname="logged">
+        <source>logged</source>
+        <target>Logged</target>
+      </trans-unit>
+      <trans-unit id="ACcM9j_" resname="logout">
+        <source>logout</source>
+        <target>Logout</target>
+      </trans-unit>
+      <trans-unit id="9GluP_Z" resname="sign_in">
+        <source>sign_in</source>
+        <target>Sign in</target>
+      </trans-unit>
+      <trans-unit id="XohImNo" resname="password">
+        <source>password</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="DkEsd1L" resname="categorie">
+        <source>categorie</source>
+        <target>Categorie</target>
+      </trans-unit>
+      <trans-unit id="mjN9ZoQ" resname="episode.list">
+        <source>episode.list</source>
+        <target>Episode List</target>
+      </trans-unit>
+      <trans-unit id="fkFOasQ" resname="episode">
+        <source>episode</source>
+        <target>Episode</target>
+      </trans-unit>
+      <trans-unit id="FAvtv5w" resname="none">
+        <source>none</source>
+        <target>None</target>
+      </trans-unit>
+      <trans-unit id="dgcyIXL" resname="no_actor">
+        <source>no_actor</source>
+        <target>No actor</target>
+      </trans-unit>
+      <trans-unit id="2A9O0Ey" resname="leave_comment">
+        <source>leave_comment</source>
+        <target>Leave a comment</target>
+      </trans-unit>
+      <trans-unit id="xEuy.VF" resname="comment">
+        <source>comment</source>
+        <target>Comment</target>
+      </trans-unit>
+      <trans-unit id="j44k9lx" resname="season">
+        <source>season</source>
+        <target>Season</target>
+      </trans-unit>
+      <trans-unit id="P2.cwkE" resname="all_serie">
+        <source>all_serie</source>
+        <target>All the serie</target>
+      </trans-unit>
+      <trans-unit id="JBkykGe" resname="search">
+        <source>search</source>
+        <target>Search</target>
+      </trans-unit>
+      <trans-unit id="49NNLFR" resname="see_more">
+        <source>see_more</source>
+        <target>See more</target>
+      </trans-unit>
+      <trans-unit id="nOohegz" resname="add_serie">
+        <source>add_serie</source>
+        <target>Add a serie</target>
+      </trans-unit>
+      <trans-unit id="4YZuZg7" resname="back_home">
+        <source>back_home</source>
+        <target>Back to home</target>
+      </trans-unit>
+      <trans-unit id="_bbVkKl" resname="home.welcome">
+        <source>home.welcome</source>
+        <target>Welcome</target>
+      </trans-unit>
+      <trans-unit id="9xb0nh0" resname="home.favorite">
+        <source>home.favorite</source>
+        <target>Find all your favorite series here</target>
+      </trans-unit>
+      <trans-unit id="hUOg9gS" resname="welcome.last_serie">
+        <source>welcome.last_serie</source>
+        <target>Our last serie add</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

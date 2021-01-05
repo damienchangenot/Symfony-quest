@@ -2,18 +2,18 @@
 {% block title %}Wild Series{% endblock %}
 {% block body %}
 <section class="acceuil mt-0">
-    <h1 class="text-center text-white py-4">Bienvenue !</h1>
-    <h2 class="text-center text-white font-weight-bold">Retrouver toute vos séries préférées en exclusivité içi !</h2>
+    <h1 class="text-center text-white py-4">{{ 'home.welcome'|trans }}</h1>
+    <h2 class="text-center text-white font-weight-bold">{{ 'home.favorite'|trans }}</h2>
 </section>
 <section class="my-5">
-    <h2 class="text-center my-4">Nos dernieres série ajouter </h2>
+    <h2 class="text-center my-4">{{ 'welcome.last_serie'|trans }}</h2>
     <div class="row mx-0 justify-content-around">
     {% for program in programs %}
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">{{ program.title }}</h5>
                 <p class="card-text text-truncate">{{ program.summary }}</p>
-                <a href="{{ path("program_show", { slug: program.slug }) }}" class="card-link btn bg-secondary">Voir la fiche</a>
+                <a href="{{ path("program_show", { slug: program.slug }) }}" class="card-link btn bg-secondary">{{ 'see_more'|trans }}</a>
             </div>
         </div>
     {% endfor %}
