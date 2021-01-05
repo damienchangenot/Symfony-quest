@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Repository\CategoryRepository;
 use App\Repository\ProgramRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,5 +20,13 @@ class DefaultController extends AbstractController
     public function index(ProgramRepository $programRepository): Response
     {
         return $this->render('index.html.twig', ['programs' => $programRepository->findBy([],['id'=> 'DESC'],3)]);
+    }
+
+    public function navbarTop(CategoryRepository $categoryRepository): Response
+
+    {
+        return $this->render('include/_navbarTop.html.twig', [
+            'categories' => $categoryRepository->findBy([], ['id' => 'DESC'])
+        ]);
     }
 }

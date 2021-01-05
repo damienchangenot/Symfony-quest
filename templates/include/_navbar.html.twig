@@ -12,6 +12,14 @@
             <a class="nav-item nav-link active" href="{{ path('program_index') }}">{{ 'program'|trans}}<span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link active" href="{{ path('category_index') }}">{{ 'categories'|trans}}<span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link active" href="{{ path('actors_index') }}">{{ 'actors'|trans}}<span class="sr-only">(current)</span></a>
+            <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ 'categories'|trans}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    {{ render(controller('App\\Controller\\DefaultController::navbarTop')) }}
+                </div>
+            </div>
         </div>
         <div>
             <div class="dropdown">
@@ -24,7 +32,9 @@
 
                 </div>
             </div>
+            <ul>
 
+            </ul>
             {% if app.user %}
                 {{ app.user.email }}
                 <a href="{{ path('profil_index') }}" class="btn bg-primary text-white ml-2 ">{{ 'profil'|trans }}</a>
