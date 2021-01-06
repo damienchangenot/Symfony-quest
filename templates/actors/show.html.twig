@@ -4,7 +4,7 @@
 {% block body %}
     <h1 class="text-center my-3">{{ actor.name}}</h1>
     <div class="d-flex justify-content-center align-items-center flex-wrap mt-5">
-        <img class="rounded-circle" src="{{ actor.poster }}" alt="picture of {{ actor.name }}">
+        <img class="rounded-circle" src="{{ asset('uploads/' ~ actor.poster )}}" alt="picture of {{ actor.name }}">
         <ul>
             {% for program in actor.programs %}
                 <li><a href="{{ path("program_show", { slug: program.slug }) }}">{{ program.title }}</a></li>
