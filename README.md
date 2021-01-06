@@ -34,3 +34,5 @@ Quest 24: https://www.loom.com/share/d91dbd299f79471399babc8e3a8f580e
 Quest 25: https://www.loom.com/share/85a6db9566b946cbaf156146dcaf3ad4
 
 Quest 26: https://www.loom.com/share/c6b8e641771745d4a89e71eb56ca27e1
+
+Quest 27: https://www.loom.com/share/779e228ef25543db8e42b22c83c46231
